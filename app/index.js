@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
+import Popular from './components/Popular/Popular'
+import Battle from './components/Battle/Battle'
+
 // Component
 // State
 // Lifecycle
@@ -10,7 +13,10 @@ import './index.css'
 class App extends React.Component {
   render () {
     return (
-      <div>Hello World!</div>
+      <div>
+        <Battle />
+        <Popular/>
+      </div>
     )
   }
 }
