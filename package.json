@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/moisestech/github-battle#readme",
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0"
