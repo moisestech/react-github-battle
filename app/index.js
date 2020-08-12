@@ -4,6 +4,8 @@ import './index.css'
 
 import Popular from './components/Popular/Popular'
 import Battle from './components/Battle/Battle'
+import { ThemeProvider } from './contexts/theme'
+import Nav from './components/Nav/Nav'
 
 // Component
 // State
@@ -11,12 +13,29 @@ import Battle from './components/Battle/Battle'
 // UI
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      theme: 'light',
+      toggleTheme: () => {
+        this.setState(({ theme }) => ({
+          theme: theme === 'light' ? 'dark' : 'light'
+        }))
+      }
+    }
+  }
   render () {
     return (
-      <div>
-        <Battle />
-        <Popular/>
-      </div>
+      <ThemeProvider value={this.state}>
+        <div className={this.state.theme}>
+          <div className='container'>
+            <Nav />
+            <Battle />
+            <Popular/>
+          </div>
+        </div>
+      </ThemeProvider>
     )
   }
 }
