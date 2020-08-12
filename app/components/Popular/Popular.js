@@ -68,7 +68,7 @@ function ReposGrid ({ repos }) {
                   {open_issues.toLocaleString()} open
                 </li>
               </ul>
-            </Card>>
+            </Card>
           </li>
 	      )
       })}
