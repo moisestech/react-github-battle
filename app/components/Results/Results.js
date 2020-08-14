@@ -5,6 +5,8 @@ import Card from '../Card/Card'
 import PropTypes from 'prop-types'
 import Loading from '../Loading/Loading'
 import Tooltip from '../Tooltip/Tooltip'
+import queryString from 'queryString'
+import { Link } from 'react-router-dom'
 
 
 function ProfileList ({ profile}) {
@@ -111,19 +113,13 @@ export default class Results extends React.Component {
             <ProfileList profile={loser.profile} />
           </Card>
         </div>
-        <button
-          onClick={this.props.onReset}
+        <Link
+          to='/battle'
           className='btn dark-btn btn-space'>
           Reset
-        </button>
+        </Link>
       </React.Fragment>
     )
   }
-}
-
-Results.propTypes = {
-  playerOne: PropTypes.string.isRequired,
-  playerTwo: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired
 }
 
