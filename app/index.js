@@ -6,6 +6,7 @@ import Popular from './components/Popular/Popular'
 import Battle from './components/Battle/Battle'
 import { ThemeProvider } from './contexts/theme'
 import Nav from './components/Nav/Nav'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // Component
 // State
@@ -27,15 +28,18 @@ class App extends React.Component {
   }
   render () {
     return (
-      <ThemeProvider value={this.state}>
-        <div className={this.state.theme}>
-          <div className='container'>
-            <Nav />
-            <Battle />
-            <Popular/>
+      <Router>
+        <ThemeProvider value={this.state}>
+          <div className={this.state.theme}>
+            <div className='container'>
+              <Nav />
+
+              <Route exact path='/' component={Popular} />
+              <Route path='/battle' component={Battle} />
+            </div>
           </div>
-        </div>
-      </ThemeProvider>
+        </ThemeProvider>
+      </Router>
     )
   }
 }
