@@ -5,9 +5,8 @@ import Card from '../Card/Card'
 import PropTypes from 'prop-types'
 import Loading from '../Loading/Loading'
 import Tooltip from '../Tooltip/Tooltip'
-import queryString from 'queryString'
+import queryString from 'query-string'
 import { Link } from 'react-router-dom'
-
 
 function ProfileList ({ profile}) {
   return (
@@ -28,6 +27,7 @@ function ProfileList ({ profile}) {
         <li>
           <Tooltip text="User's company">
             <FaBriefcase color='#795548' size={22} />
+            {profile.company}
           </Tooltip>
         </li>
       )}
@@ -42,8 +42,6 @@ function ProfileList ({ profile}) {
     </ul>
   )
 }
-
-
 
 ProfileList.propTypes = {
   profile: PropTypes.object.isRequired
@@ -60,8 +58,8 @@ export default class Results extends React.Component {
       loading: true
     }
   }
-  componentDidMount() {
-    const { playerOne, playerTwo, onReset } = this.props
+  componentDidMount () {
+    const { playerOne, playerTwo } = queryString.parse(this.props.location.search)
 
     battle([ playerOne, playerTwo ])
       .then((players) => {
@@ -101,7 +99,7 @@ export default class Results extends React.Component {
             href={winner.profile.html_url}
             name={winner.profile.login}
           >
-            <ProfileList profile={winner.profile} />
+            <ProfileList profile={winner.profile}/>
           </Card>
           <Card
             header={winner.score === loser.score ? 'Tie' : 'Loser'}
@@ -110,16 +108,15 @@ export default class Results extends React.Component {
             name={loser.profile.login}
             href={loser.profile.html_url}
           >
-            <ProfileList profile={loser.profile} />
+            <ProfileList profile={loser.profile}/>
           </Card>
         </div>
         <Link
           to='/battle'
           className='btn dark-btn btn-space'>
-          Reset
+            Reset
         </Link>
       </React.Fragment>
     )
   }
 }
-
