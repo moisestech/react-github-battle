@@ -15,7 +15,7 @@ function getProfile (username) {
     .then((res) => res.json())
     .then((profile) => {
       if (profile.message) {
-        throw new Error()
+        throw new Error(getErrorMsg(profile.message, username))
       }
 
       return profile
@@ -35,11 +35,11 @@ function getRepos (username) {
 }
 
 function getStarCount (repos) {
-  return repos.reduce((count, { stargazers_count }) => count + stargazers_count, 0)
+  return repos.reduce((count, { stargazers_count }) => count + stargazers_count , 0)
 }
 
 function calculateScore (followers, repos) {
-  return (followers * 3) * getStarCount(repos)
+  return (followers * 3) + getStarCount(repos)
 }
 
 function getUserData (player) {
@@ -70,9 +70,11 @@ export function fetchPopularRepos (language) {
     .then((res) => res.json())
     .then((data) => {
       if (!data.items) {
-        throw new Error (data.message)
+        throw new Error(data.message)
       }
 
       return data.items
     })
 }
+
+

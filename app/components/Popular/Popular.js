@@ -38,7 +38,7 @@ function ReposGrid ({ repos }) {
         const { name, owner, html_url, stargazers_count, forks, open_issues } = repo
         const { login, avatar_url } = owner
 
-	      return (
+        return (
           <li key={html_url}>
             <Card
               header={`#${index + 1}`}
@@ -48,11 +48,11 @@ function ReposGrid ({ repos }) {
             >
               <ul className='card-list'>
                 <li>
-                	<Tooltip text="Github username">
-	                  <FaUser color='rgb(255, 191, 116)' size={22} />
-	                  <a href={`https://github.com/${login}`}>
-	                    {login}
-	                  </a>
+                  <Tooltip text="Github username">
+                    <FaUser color='rgb(255, 191, 116)' size={22} />
+                    <a href={`https://github.com/${login}`}>
+                      {login}
+                    </a>
                   </Tooltip>
                 </li>
                 <li>
@@ -70,7 +70,7 @@ function ReposGrid ({ repos }) {
               </ul>
             </Card>
           </li>
-	      )
+        )
       })}
     </ul>
   )
@@ -85,39 +85,36 @@ export default class Popular extends React.Component {
   state = {
     selectedLanguage: 'All',
     repos: {},
-    error: null
+    error: null,
   }
-  componenDidMount () {
+  componentDidMount () {
     this.updateLanguage(this.state.selectedLanguage)
   }
   updateLanguage = (selectedLanguage) => {
     this.setState({
       selectedLanguage,
-      error: null
+      error: null,
     })
 
     if (!this.state.repos[selectedLanguage]) {
-      fetchPopularRepos (selectedLanguage)
+      fetchPopularRepos(selectedLanguage)
         .then((data) => {
           this.setState(({ repos }) => ({
             repos: {
               ...repos,
-              [selectedLanguage]:data
+              [selectedLanguage]: data
             }
           }))
         })
         .catch(() => {
-            console.warn('Error fetching repos: ', error)
+          console.warn('Error fetching repos: ', error)
 
-            this.setState({
-              error: 'There was an error fetching the repositories'
-            })
+          this.setState({
+            error: `There was an error fetching the repositories.`
           })
+        })
     }
-
-
   }
-
   isLoading = () => {
     const { selectedLanguage, repos, error } = this.state
 
