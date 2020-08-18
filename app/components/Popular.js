@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { fetchPopularRepos } from '../../utils/api'
+import { fetchPopularRepos } from '../utils/api'
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa'
-import Card from '../Card/Card'
-import Loading from '../Loading/Loading'
-import Tooltip from '../Tooltip/Tooltip'
+import Card from './Card'
+import Loading from './Loading'
+import Tooltip from './Tooltip'
 
 function LanguagesNav ({ selected, onUpdateLanguage }) {
   const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python']
