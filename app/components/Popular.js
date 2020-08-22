@@ -110,7 +110,7 @@ export default function Popular () {
 
 
   React.useEffect(() => {
-    if (fetchedLanguages.current.include(selectedLanguage) === false) {
+    if (fetchedLanguages.current.includes(selectedLanguage) === false) {
       fetchedLanguages.current.push(selectedLanguage)
 
       fetchPopularRepos(selectedLanguage)
@@ -119,7 +119,7 @@ export default function Popular () {
     }
   }, [fetchedLanguages, selectedLanguage])
 
-  const isLoading = () => !state[selectedLanguage] && error === null
+  const isLoading = () => !state[selectedLanguage] && state.error === null
 
   return (
     <>
