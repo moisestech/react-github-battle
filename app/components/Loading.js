@@ -29,7 +29,7 @@ export default function Loading ({ text = 'Loading', speed = 300}) {
 
   return (
     <p style={styles.content}>
-      {this.state.content}
+      {content}
     </p>
   )
 }
