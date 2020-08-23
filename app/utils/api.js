@@ -48,7 +48,8 @@ function getUserData (player) {
     getRepos(player)
   ]).then(([ profile, repos ]) => ({
     profile,
-    score: calculateScore(profile.followers, repos)
+    score: calculateScore(profile.followers, repos),
+    repos
   }))
 }
 

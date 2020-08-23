@@ -8,7 +8,8 @@ import Tooltip from './Tooltip'
 import queryString from 'query-string'
 import { Link } from 'react-router-dom'
 
-function ProfileList ({ profile }) {
+function ProfileList ({ profile, repos }) {
+
   return (
     <ul className='card-list'>
       <li>
@@ -39,12 +40,17 @@ function ProfileList ({ profile }) {
         <FaUserFriends color='rgb(64, 183, 95)' size={22} />
         {profile.following.toLocaleString()} following
       </li>
+      <li>
+        <FaCode color='rgb(59, 76, 85)' size={22} />
+        {repos.length} repositories
+      </li>
     </ul>
   )
 }
 
 ProfileList.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  repos: PropTypes.array.isRequired
 }
 
 function battleReducer (state, action) {
@@ -66,7 +72,7 @@ function battleReducer (state, action) {
   }
 }
 
-export default function Results ({ loaction }) {
+export default function Results ({ location }) {
   const { playerOne, playerTwo } = queryString.parse(location.search)
   const [state, dispatch] = React.useReducer(
     battleReducer,
@@ -80,8 +86,6 @@ export default function Results ({ loaction }) {
   }, [playerOne, playerTwo])
 
   const { winner, loser, error, loading } = state
-
-  console.log(state)
 
   if (loading === true) {
     return <Loading text='Battling' />
@@ -103,7 +107,9 @@ export default function Results ({ loaction }) {
           href={winner.profile.html_url}
           name={winner.profile.login}
         >
-          <ProfileList profile={winner.profile}/>
+          <ProfileList
+            profile={winner.profile}
+            repos={winner.repos} />
         </Card>
         <Card
           header={winner.score === loser.score ? 'Tie' : 'Loser'}
@@ -112,7 +118,9 @@ export default function Results ({ loaction }) {
           name={loser.profile.login}
           href={loser.profile.html_url}
         >
-          <ProfileList profile={loser.profile}/>
+          <ProfileList
+            profile={loser.profile}
+            repos={loser.repos} />
         </Card>
       </div>
       <Link
