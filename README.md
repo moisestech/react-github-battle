@@ -65,3 +65,4 @@ GithubAPI Profile competition app.
 ## 📝 Todos
 
 - Add React 17 transform-jsx runtime automatic
+- Re-write in Typescript
