@@ -4,7 +4,7 @@
 
 <img src="https://raw.githubusercontent.com/moisestech/github-battle/master/public/assets/github-battle_logo.png" width="150px"/>
 
-**GithubAPI Profile competition app**
+## **GithubAPI Profile competition app**
 
 ## ⚙ Features
 
