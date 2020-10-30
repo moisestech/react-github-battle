@@ -2,7 +2,9 @@
 
 # Github Battle
 
-GithubAPI Profile competition app.
+<img src="https://raw.githubusercontent.com/moisestech/github-battle/master/public/assets/github-battle_logo.png" width="150px"/>
+
+**GithubAPI Profile competition app**
 
 ## ⚙ Features
 
@@ -68,3 +70,4 @@ GithubAPI Profile competition app.
 - Re-factor large components
 - Re-structure folders
 - Re-write in Typescript
+- Add Favicon
