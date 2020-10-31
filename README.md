@@ -9,7 +9,7 @@
 ## ⚙ Features
 
 - React 17
-- React Router v6
+- React Router v5
 - React Hooks
 - ES8
 - PropTypes
@@ -33,31 +33,70 @@
 
 ```bash
 ├── README.md
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── publicinde
-│   ├── favicon.ico
-│   └── index.html
-└── app
-    ├── index.css # Styles for your app.
-    ├── index.html # App root with static HTML
-    ├── index.js # Used for testing. Testing coming soon.
-    ├── components
-    │   ├── Battle.js
-    │   ├── Card.js
-    │   ├── Loading.js
-    │   ├── Nav.js
-    │   ├── Popular.js
-    │   ├── Results.js
-    │   └── Tooltip.js
-    ├── contexts
-    │   └── theme.js
-    ├── hooks
-    │   └── useHover.js # useHover hook
-    ├── utils
-    │   └── api.js #fetch Github API Data
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+├── package.json
+├── public
+│   ├── _redirects
+│   ├── assets
+│   │   ├── github-battle-1.png
+│   │   ├── github-battle-2.png
+│   │   ├── github-battle-3.png
+│   │   ├── github-battle-4.png
+│   │   ├── github-battle-5.png
+│   │   ├── github-battle-6.png
+│   │   └── github-battle_logo.png
+│   └── index.html
+├── src
+│   ├── components
+│   │   ├── Card
+│   │   │   ├── card.css
+│   │   │   └── index.js
+│   │   ├── Loading
+│   │   │   └── index.js
+│   │   ├── Nav
+│   │   │   ├── index.js
+│   │   │   └── nav.css
+│   │   └── Tooltip
+│   │       └── index.js
+│   ├── contexts
+│   │   └── theme.js
+│   ├── hooks
+│   │   └── useHover.js
+│   ├── index.css
+│   ├── index.js
+│   ├── pages
+│   │   ├── Battle
+│   │   │   ├── battle.css
+│   │   │   ├── components
+│   │   │   │   ├── Instructions
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── instructions.css
+│   │   │   │   ├── PlayerInput
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── player-input.css
+│   │   │   │   └── PlayerPreview
+│   │   │   │       ├── index.js
+│   │   │   │       └── player-preview.css
+│   │   │   └── index.js
+│   │   ├── Popular
+│   │   │   ├── components
+│   │   │   │   ├── LanguagesNav
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── languages-nav.css
+│   │   │   │   └── ReposGrid
+│   │   │   │       ├── index.js
+│   │   │   │       └── repos-grid.css
+│   │   │   ├── index.js
+│   │   │   └── popular.css
+│   │   └── Results
+│   │       ├── components
+│   │       │   └── ProfileList
+│   │       │       ├── index.js
+│   │       │       └── profile-list.css
+│   │       ├── index.js
+│   │       └── results.css
+│   └── utils
+│       └── api.js
+└── webpack.config.js
 ```
 
 ## ⛰️ Roadmap
@@ -66,8 +105,11 @@
 
 ## 📝 Todos
 
-- Add React 17 transform-jsx runtime automatic
-- Re-factor large components
-- Re-structure folders
-- Re-write in Typescript
-- Add Favicon
+- Re-factor large components.
+- Re-structure folders.
+- Re-write in Typescript.
+- Refactor in styled components.
+- Handle input undefined username.
+- Add Better preview images (larger, animated).
+- Rename public assets for context.
+- Add Favicon.
