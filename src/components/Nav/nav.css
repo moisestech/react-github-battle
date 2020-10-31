@@ -1,0 +1,24 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav li {
+  margin-right: 10px;
+}
+
+.btn-clear {
+  border: none;
+  background: transparent;
+}
