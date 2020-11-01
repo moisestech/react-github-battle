@@ -1,0 +1,9 @@
+.center-text {
+  text-align: center;
+}
+
+.error {
+  color: #ff1616;
+  font-size: 20px;
+  margin: 50px 0;
+}
