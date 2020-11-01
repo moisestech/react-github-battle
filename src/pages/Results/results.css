@@ -1,0 +1,44 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.container-sm {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* BUTTON */
+
+.btn {
+  padding: 10px;
+  text-decoration: uppercase;
+  letter-spacing: 0.25em;
+  border-radius: 3px;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 200px;
+}
+
+.dark-btn {
+  color: #e6e6e6;
+  background: #141414;
+}
+
+.dark-btn:disabled {
+  background: #f2f2f2;
+  color: #c7c7c7;
+}
+
+.btn-space {
+  margin: 40px auto;
+}
