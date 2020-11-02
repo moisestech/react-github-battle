@@ -1,5 +1,5 @@
 import "./player-preview.css";
-import { useState } from "react";
+
 import PropTypes from "prop-types";
 
 // CONTEXT
